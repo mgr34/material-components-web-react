@@ -23,14 +23,13 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import {MDCMenuFoundation} from '@material/line-ripple/dist/mdc.lineRipple';
+import {MDCMenuFoundation} from '@material/menu/dist/mdc.menu';
 
 export default class Menu extends Component {
 
   foundation_ = null;
 
   state = {
-    classList: new Set(),
     style: {},
   };
 
@@ -46,40 +45,35 @@ export default class Menu extends Component {
 
   get adapter() {
     return {
-      addClassToElementAtIndex: (index, className) => {
-        const list = this.items;
-        list[index].classList.add(className);
-      },
-      removeClassFromElementAtIndex: (index, className) => {
-        const list = this.items;
-        list[index].classList.remove(className);
-      },
-      addAttributeToElementAtIndex: (index, attr, value) => {
-        const list = this.items;
-        list[index].setAttribute(attr, value);
-      },
-      removeAttributeFromElementAtIndex: (index, attr) => {
-        const list = this.items;
-        list[index].removeAttribute(attr);
-      },
-      elementContainsClass: (element, className) => element.classList.contains(className),
-      closeSurface: () => this.open = false,
-      getElementIndex: (element) => this.items.indexOf(element),
-      getParentElement: (element) => element.parentElement,
-      getSelectedElementIndex: (selectionGroup) => {
-        return this.items.indexOf(selectionGroup.querySelector(`.${cssClasses.MENU_SELECTED_LIST_ITEM}`));
-      },
-      notifySelected: (evtData) => this.emit(strings.SELECTED_EVENT, {
-        index: evtData.index,
-        item: this.items[evtData.index],
-      }),
+      // addClassToElementAtIndex: (index, className) => {
+      //   const list = this.items;
+      //   list[index].classList.add(className);
+      // },
+      // removeClassFromElementAtIndex: (index, className) => {
+      //   const list = this.items;
+      //   list[index].classList.remove(className);
+      // },
+      // addAttributeToElementAtIndex: (index, attr, value) => {
+      //   const list = this.items;
+      //   list[index].setAttribute(attr, value);
+      // },
+      // removeAttributeFromElementAtIndex: (index, attr) => {
+      //   const list = this.items;
+      //   list[index].removeAttribute(attr);
+      // },
+      // elementContainsClass: (element, className) => element.classList.contains(className),
+      // closeSurface: () => this.open = false,
+      // getElementIndex: (element) => this.items.indexOf(element),
+      // getParentElement: (element) => element.parentElement,
+      // getSelectedElementIndex: (selectionGroup) => {
+      //   return this.items.indexOf(selectionGroup.querySelector(`.${cssClasses.MENU_SELECTED_LIST_ITEM}`));
+      // },
     };
   }
 
   get classes() {
     const {className} = this.props;
-    const {classList} = this.state;
-    return classnames('mdc-menu', Array.from(classList), className);
+    return classnames('mdc-menu',  className);
   }
 
   handleClick = (evt) => {
@@ -99,6 +93,7 @@ export default class Menu extends Component {
       onClick,
       ...otherProps
     } = this.props;
+    // menu surface instead of div
     return (
       <div
         onKeyDown={this.handleKeydown}
