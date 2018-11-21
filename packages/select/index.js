@@ -83,11 +83,10 @@ export default class Select extends React.Component {
 
   get classes() {
     const {classList, disabled} = this.state;
-    const {className, box, outlined} = this.props;
+    const {className, outlined} = this.props;
     return classnames('mdc-select', Array.from(classList), className, {
       'mdc-select--outlined': outlined,
       'mdc-select--disabled': disabled,
-      'mdc-select--box': box,
     });
   }
 
@@ -240,7 +239,6 @@ export default class Select extends React.Component {
 }
 
 Select.propTypes = {
-  box: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element,
@@ -268,7 +266,6 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  box: false,
   className: '',
   disabled: false,
   floatingLabelClassName: '',

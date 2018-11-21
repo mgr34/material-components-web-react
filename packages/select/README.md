@@ -90,7 +90,6 @@ class MyApp extends React.Component {
 
 Prop Name | Type | Description
 --- | --- | ---
-box | Boolean | Enables box variant.
 children | Array{Element}/Element | Array of `<option>` elements or a single `<option>` element.
 className | String | An optional class added to the `.mdc-select` element.
 disabled | Boolean | Disables the select.

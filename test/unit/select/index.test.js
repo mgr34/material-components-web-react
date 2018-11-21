@@ -51,11 +51,6 @@ test('props.disabled will add mdc-select--disabled', () => {
   assert.isTrue(wrapper.hasClass('mdc-select--disabled'));
 });
 
-test('props.box will add mdc-select--box', () => {
-  const wrapper = shallow(<Select label='my label' box />);
-  assert.isTrue(wrapper.hasClass('mdc-select--box'));
-});
-
 test('a class in state.classList will be added to the select', () => {
   const wrapper = shallow(<Select label='my label' />);
   wrapper.setState({classList: new Set(['best-class-name'])});

@@ -39,7 +39,6 @@ class SelectTest extends React.Component {
 
 const variants = [
   {},
-  {box: true},
   {outlined: true},
 ];
 
