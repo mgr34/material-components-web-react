@@ -30,7 +30,7 @@ export interface DialogTitleProps extends React.HTMLProps<HTMLElement>{
   id?: string,
 };
 
-export const DialogTitle: React.FunctionComponent<DialogTitleProps> = ({
+const DialogTitle: React.FunctionComponent<DialogTitleProps> = ({
   className = '', children, tag: Tag = 'h2', ...otherProps
 }) => (
   // @ts-ignore  https://github.com/Microsoft/TypeScript/issues/28892
@@ -39,5 +39,5 @@ export const DialogTitle: React.FunctionComponent<DialogTitleProps> = ({
   </Tag>
 );
 
-DialogTitle.displayName = 'DialogTitle';
+
 export default DialogTitle;
