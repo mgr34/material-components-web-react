@@ -14,7 +14,7 @@ import './index.scss';
 const choices: string[] = ['Never gonna give yo up', 'Host cross buns', 'None'];
 
 class Confirmation extends React.Component<{}, {isOpen: boolean; action: string; selectedIndex: number;}> {
-  state = {isOpen: false, action: '', selectedIndex: -1};
+  state = {isOpen: true, action: '', selectedIndex: -1};
 
   isChecked = (i: number) => i === this.state.selectedIndex;
 
@@ -37,8 +37,16 @@ class Confirmation extends React.Component<{}, {isOpen: boolean; action: string;
           scrimClickAction={''}
           onClose={(action: string) => this.setState({isOpen: false, action})}
           open={this.state.isOpen}>
-          <DialogTitle>Phone Ringtone</DialogTitle>
-          <DialogContent>
+          <DialogTitle tag='footer'>Phone Ringtone</DialogTitle>
+          <span>ok</span>
+          <DialogContent
+            tag='a'
+            href={'http://google.com'}
+            onClick={(e: React.MouseEvent) => {
+              e.preventDefault();
+              console.log(e.target);
+            }}
+          >
             <List singleSelection handleSelect={ (selectedIndex) => this.setState({selectedIndex})}>
               {choices.map((choice: string, i: number) => {
                 let c: string = choice.replace(/\s/g, '-');

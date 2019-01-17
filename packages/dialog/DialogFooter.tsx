@@ -23,12 +23,10 @@ import * as React from 'react';
 import * as classnames from 'classnames';
 import {cssClasses} from './constants';
 
-
 export interface DialogFooterProps<T> extends React.HTMLProps<T> {
   className?: string,
   tag?: string,
-};
-
+}
 
 const DialogFooter: <T extends {} = HTMLElement>(props: DialogFooterProps<T>) =>
   React.ReactElement<T> = ({
